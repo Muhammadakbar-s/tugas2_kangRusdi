@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // membuat 100 array
+    function getValue(data){
+        let array = []
+        for (let i = array.length+1; array.length+1 <= data; i++) {
+            array.push(Math.round(Math.random()*50))
+        }
+        return array
+    } ;
+    //    memecah array genap dan ganjil
+    function oddIndex (array){
+     let oddIndex = []
+        for (let i = 0; i < (array.length); i++) {
+  if (i%2 === 1) {
+    oddIndex.push(array[i])
+  } 
+}return oddIndex
+    }
+
+    function evenIndex (array){
+     let evenIndex = []
+        for (let i = 0; i < (array.length); i++) {
+  if (i%2 === 0) {
+    evenIndex.push(array[i])
+  } 
+}return evenIndex
+    }
+
+//   mendapatka nilai min, max, total, dan rata-rata
+
+   class GetData {
+    constructor (array) {
+        this.arraySort = array
+        array.sort(function (a,b) {return a-b})
+        this.max = this.arraySort[this.arraySort.length -1]
+        this.min = this.arraySort[0]
+        this.total = 0
+        this.average = 0
+        }
+        getTotal (arraySort) {
+            for (let i = 0; i <= (this.arraySort.length -1); i++){
+                this.total += this.arraySort[i]
+            } return this.total
+        }
+        getAverage (arraySort) {
+            for (let i = 0; i <= (this.arraySort.length -1); i++){
+                this.average = this.average + this.arraySort[i]
+            }
+            return this.average = this.average / this.arraySort.length
+        }
+    };
+
+    // membuat perbandingan
+    class GetComparison {
+        constructor (a, b) {
+            this.aMin = a.min
+            this.aMax = a.max
+            this.aTotal = a.total
+            this.aAverage = a.average
+            this.bMin = b.min
+            this.bMax = b.max
+            this.bTotal = b.total
+            this.bAverage = b.average
+            
+        }
+        minComparison () {
+
+            if (this.aMin > this.bMin) {
+                return console.log(`nilai min dari array pertama yaitu ${this.aMin} lebih besar dari min array kedua yaitu ${this.bMin}`)
+            } else if (this.aMin < this.bMin) {
+                return console.log(`nilai min dari array kedua yaitu ${this.bMin} lebih besar dari min array pertama ${this.aMin}`)
+            } else {
+                return console.log(`nilai min dari array pertama yaitu ${this.aMin} sama dengan min array kedua yaitu ${this.bMin}`)
+            }
+        }
+        maxComparison () {
+
+            if (this.aMax > this.bMax) {
+                return console.log(`nilai max dari array pertama  yaitu ${this.aMax}lebih besar dari max array kedua ${this.bMax}`)
+            } else if (this.aMax < this.bMax) {
+                return console.log(`nilai max dari array kedua yaitu ${this.bMax} lebih besar dari max array pertama  yaitu ${this.aMax}`)
+            } else {
+                return console.log(`nilai max dari array pertama yaitu ${this.aMax} sama dengan max array kedua  yaitu ${this.bMax}`)
+            }
+        }
+      totalComparison   () {
+
+if (this.aTotal > this.bTotal) {
+    return console.log(`nilai total dari array pertama  yaitu ${this.aTotal} lebih besar dari total array kedua ${this.bTotal}`)
+} else if (this.aTotal < this.bTotal) {
+    return console.log(`nilai max dari array kedua yaitu ${this.bTotal} lebih besar dari Total array pertama  yaitu ${this.aTotal}`)
+} else {
+    return console.log(`nilai Total dari array pertama yaitu ${this.aTotal} sama dengan Total array kedua  yaitu ${this.bTotal}`)
+}
+}
+
+      averageComparison   () {
+
+if (this.aAverage > this.bAverage) {
+    return console.log(`nilai Average dari array pertama  yaitu ${this.aAverage} lebih besar dari Average array kedua ${this.bAverage}`)
+} else if (this.aAverage < this.bAverage) {
+    return console.log(`nilai max dari array kedua yaitu ${this.bAverage} lebih besar dari Average array pertama  yaitu ${this.aAverage}`)
+} else {
+    return console.log(`nilai Average dari array pertama yaitu ${this.aAverage} sama dengan Average array kedua  yaitu ${this.bAverage}`)
+}
+}
+
+    }
+
+//    membuat 100 data random
+const data = getValue(100);
+console.log(data);
+
+// memecah menjadi dua array berdasarkam array ganjil dan genap
+const evenArray = evenIndex(data);
+const oddArray = oddIndex(data);
+console.log(evenArray);
+console.log(oddArray);
+
+// mendapatkan nilai min, max, total, max masimg-masing index
+const evenArrayValue = new GetData(evenArray);
+const oddArrayValue = new GetData(oddArray);
+console.log(evenArrayValue);
+console.log(oddArrayValue);
+
+// membuat perbandingan
+const comparison = new GetComparison(evenArrayValue, oddArrayValue);
+comparison.minComparison();
+comparison.maxComparison();
+comparison.totalComparison();
+comparison.averageComparison();
+
+   
+
+
+    
+
+    </script>
+</body>
+</html>
